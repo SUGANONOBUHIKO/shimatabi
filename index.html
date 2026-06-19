@@ -102,6 +102,17 @@ body{font-family:var(--font-main);color:var(--text);background:var(--surface);mi
 .result-btn:hover{opacity:0.9}
 .back-btn{border:none;background:none;color:var(--ocean-light);font-size:14px;cursor:pointer;font-family:var(--font-main);margin-bottom:24px;display:flex;align-items:center;gap:6px;padding:0}
 .results-title{font-family:var(--font-serif);font-size:24px;margin-bottom:24px}
+.catchcopy{font-size:13px;color:rgba(255,255,255,0.5);letter-spacing:0.15em;margin-bottom:8px;font-style:italic}
+.faq-section{padding:60px 32px;background:var(--surface)}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden;transition:box-shadow 0.2s}
+.faq-item:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.faq-q{width:100%;text-align:left;padding:20px 24px;background:none;border:none;font-family:var(--font-main);font-size:15px;font-weight:500;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-icon{font-size:18px;color:var(--ocean);flex-shrink:0;transition:transform 0.3s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease;font-size:14px;color:var(--text-muted);line-height:1.8}
+.faq-a-inner{padding:0 24px 20px}
+.faq-item.open .faq-a{max-height:300px}
 </style>
 </head>
 <body>
@@ -116,6 +127,7 @@ body{font-family:var(--font-main);color:var(--text);background:var(--surface);mi
   <div class="hero-content">
     <div class="hero-tagline">ドメイン島巡りが訪れた島々へ</div>
     <div class="hero-title">知られざる島の<br>旅へ出かけよう</div>
+    <div class="catchcopy">🐱 猫にマタタビ、人にシマタビ 🏝️</div>
     <div class="hero-sub">日本発、世界50の島々への旅を探す</div>
     <div class="search-box">
       <div class="search-tabs">
@@ -252,13 +264,12 @@ body{font-family:var(--font-main);color:var(--text);background:var(--surface);mi
 <div class="features">
   <div style="text-align:center">
     <div style="font-size:12px;letter-spacing:0.2em;opacity:0.6;text-transform:uppercase;margin-bottom:12px">Why シマタビ</div>
-    <div style="font-family:'Noto Serif JP',serif;font-size:28px;margin-bottom:8px">シマタビが選ばれる理由</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:28px;margin-bottom:8px">シマタビだからできること</div>
   </div>
-  <div class="feat-grid">
-    <div class="feat-item"><div class="feat-icon">🗺️</div><div class="feat-title">50の島すべてに対応</div><div class="feat-desc">ドメイン島巡りが実際に訪れた全島へのアクセスをサポート</div></div>
-    <div class="feat-item"><div class="feat-icon">✈️</div><div class="feat-title">日本発着に最適化</div><div class="feat-desc">成田・羽田・関西など主要空港から最適なルートを提案</div></div>
-    <div class="feat-item"><div class="feat-icon">💬</div><div class="feat-title">日本語サポート</div><div class="feat-desc">予約から現地サポートまで日本語でお任せください</div></div>
-    <div class="feat-item"><div class="feat-icon">🔒</div><div class="feat-title">安心の保証制度</div><div class="feat-desc">フライトキャンセル・遅延にも対応する旅行保険を自動付帯</div></div>
+  <div class="feat-grid" style="grid-template-columns:repeat(3,1fr);max-width:900px">
+    <div class="feat-item"><div class="feat-icon">✈️</div><div class="feat-title">日本発に最適化</div><div class="feat-desc">成田・羽田・関西など主要空港からの最適ルートを提案。乗り継ぎが複雑な秘境へのアクセスもサポート</div></div>
+    <div class="feat-item"><div class="feat-icon">🌐</div><div class="feat-title">ドメイン島巡りとは</div><div class="feat-desc">インターリンクが運営する「島のドメイン」探訪プロジェクト。.tv（ツバル）.cc（ココス諸島）など、世界の島に割り当てられたドメインを持つ島々を実際に訪問し、その魅力をレポートしています</div></div>
+    <div class="feat-item"><div class="feat-icon">📋</div><div class="feat-title">現地のリアル情報</div><div class="feat-desc">実際に島を訪問したレポートには、行った場所・宿泊先・飲食店・ネット環境など、旅行者に役立つ情報が掲載されています</div></div>
   </div>
 </div>
 
@@ -271,6 +282,66 @@ body{font-family:var(--font-main);color:var(--text);background:var(--surface);mi
     <a class="see-all">すべてのセールを見る →</a>
   </div>
   <div class="deal-grid" id="deal-grid"></div>
+</div>
+
+<div class="faq-section">
+  <div class="section-header" style="max-width:760px;margin:0 auto 32px">
+    <div>
+      <div class="section-title">よくある質問</div>
+      <div class="section-sub">FAQ — シマタビについて</div>
+    </div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        シマタビとはどんなサービスですか？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">シマタビは、インターリンクの「ドメイン島巡り」が実際に訪れた世界50以上の島々への旅を、日本から探せる旅行情報サービスです。知られざる秘境から人気リゾートまで、島旅の魅力をお届けします。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        実際に旅行の予約ができますか？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">現在シマタビはデモサービスです。表示されている価格・フライト情報はサンプルです。実際の旅行予約はエクスペディア・スカイスキャナーなど各旅行予約サービスをご利用ください。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        掲載されている島々はどうやって選ばれていますか？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">インターリンクの「ドメイン島巡り」プロジェクトが実際に現地を訪問取材した島々のみを掲載しています。南太平洋・カリブ海・インド洋・ヨーロッパなど7つのエリアにわたる50以上の島が対象です。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        日本からアクセスしにくい島にも行けますか？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">はい。アセンション島・セントヘレナ島・ニウエなど、通常の旅行会社では扱いにくい秘境の島への行き方情報も提供しています。乗り継ぎルートや現地情報はドメイン島巡りの現地レポートも参考にしてください。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ビザは必要ですか？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">島によって異なります。日本国籍の場合、多くの島はビザなしで入国できますが、一部の島では事前取得が必要です。最新情報は各国大使館や外務省の海外安全情報をご確認ください。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        旅行保険は必要ですか？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">強くおすすめします。特に医療体制が整っていない秘境の島では、緊急搬送費用が高額になる場合があります。出発前に海外旅行保険へのご加入をご検討ください。</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        現地のSIMカード・インターネット事情は？
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">島によって大きく異なります。ドメイン島巡りの各島レポートには現地SIMの速度調査結果も掲載されています。グリーンランドではAiraloのeSIMが有効でした。事前に現地の通信事情を確認することをおすすめします。</div></div>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
@@ -387,6 +458,12 @@ function showResults(origin,dest,code){
       +'<button class="result-btn" onclick="alert(\'予約ページへ移動します（デモ）\')">予約する</button></div>';
   }).join('');
   window.scrollTo(0,0);
+}
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!wasOpen)item.classList.add('open');
 }
 function goBack(){
   document.getElementById('main-content').style.display='block';
